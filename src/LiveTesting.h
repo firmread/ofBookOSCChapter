@@ -1,9 +1,4 @@
-
-
-#ifndef __OfBookOsc__LiveTesting__
-#define __OfBookOsc__LiveTesting__
-
-#include <iostream>
+#pragma once
 #include "ofxOsc.h"
 
 class LiveTesting
@@ -28,5 +23,3 @@ public:
     bool triggerBonus; 
     
 };
-
-#endif /* defined(__OfBookOsc__LiveTesting__) */

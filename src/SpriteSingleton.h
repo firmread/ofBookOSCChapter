@@ -5,12 +5,7 @@
 //  Created by Phoenix Perry on 3/8/14.
 //
 //
-
-#ifndef __OfBookOsc__SpriteSingleton__
-#define __OfBookOsc__SpriteSingleton__
-
-#include <iostream>
-#include <vector>
+#pragma once
 #include "ofMain.h"
 #include "ofxSpriteSheetRenderer.h"
 
@@ -33,4 +28,3 @@ public:
         delete spriteRenderer;
     }
 };
-#endif /* defined(__OfBookOsc__SpriteSingleton__) */

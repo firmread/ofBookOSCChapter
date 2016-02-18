@@ -6,9 +6,7 @@
 //
 //
 
-#ifndef __OfBookOsc__Player__
-#define __OfBookOsc__Player__
-
+#pragma once
 #include <iostream>
 #include "ofMain.h"
 
@@ -33,5 +31,3 @@ public:
     
 };
 
-
-#endif /* defined(__OfBookOsc__Player__) */
