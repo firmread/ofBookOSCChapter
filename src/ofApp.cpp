@@ -1,25 +1,25 @@
-#include "testApp.h"
+#include "ofApp.h"
 
 
 
 //-------------------------------------------------------------
-void testApp::setup(){
+void ofApp::setup(){
   
     game_state = "start";
     
     max_enemy_amplitude = 3.0;
     max_enemy_shoot_interval = 1.5;
     
-    enemy_image.loadImage("enemy0.png");
-    player_image.loadImage("player.png");
-    life_image.loadImage("life_image.png");
-    enemy_bullet_image.loadImage("enemy_bullet.png");
-    player_bullet_image.loadImage("player_bullet.png");
-    start_screen.loadImage("start_screen.png");
-    end_screen.loadImage("end_screen.png");
+    enemy_image.load("enemy0.png");
+    player_image.load("player.png");
+    life_image.load("life_image.png");
+    enemy_bullet_image.load("enemy_bullet.png");
+    player_bullet_image.load("player_bullet.png");
+    start_screen.load("start_screen.png");
+    end_screen.load("end_screen.png");
     player_1.setup(&player_image);
     
-    score_font.loadFont("Gota_Light.otf", 48);
+    score_font.load("Gota_Light.otf", 48);
     //simply change this boolean to turn testing on and off
     testing == false;
     if(testing == true){
@@ -29,7 +29,7 @@ void testApp::setup(){
 
 
 //--------------------------------------------------------------
-void testApp::update(){
+void ofApp::update(){
     //setting up the sprites 
 //	sort( sprites.begin(), sprites.end(), sortVertically ); // sorts the sprites vertically so the ones that are lower are drawn later and there for in front of the ones that are higher up
   
@@ -79,7 +79,7 @@ void testApp::update(){
 }
 
 //--------------------------------------------------------------
-void testApp::draw(){
+void ofApp::draw(){
 
     if (game_state == "start") {
         start_screen.draw(0,0);
@@ -110,7 +110,7 @@ void testApp::draw(){
 }
 
 //--------------------------------------------------------------
-void testApp::keyPressed(int key){
+void ofApp::keyPressed(int key){
     if (game_state == "game") {
         if (key == OF_KEY_LEFT) {
             player_1.is_left_pressed = true;
@@ -138,7 +138,7 @@ void testApp::keyPressed(int key){
 }
 
 //--------------------------------------------------------------
-void testApp::keyReleased(int key){
+void ofApp::keyReleased(int key){
     
     if (game_state == "start") {
         game_state = "game";
@@ -198,7 +198,7 @@ void testApp::keyReleased(int key){
 
 
 //--------------------------------------------------------------
-void testApp::update_bullets() {
+void ofApp::update_bullets() {
     for (int i = 0; i < bullets.size(); i++) {
         bullets[i].update();
     }
@@ -207,7 +207,7 @@ void testApp::update_bullets() {
     
 }
 //--------------------------------------------------------------
-void testApp::update_bonuses() {
+void ofApp::update_bonuses() {
     for (int i = bonuses.size()-1; i > 0; i--) {
         bonuses[i].update();
         if (ofDist(player_1.pos.x, player_1.pos.y, bonuses[i].pos.x, bonuses[i].pos.y) < (player_1.width + bonuses[i].width)/2) {
@@ -222,7 +222,7 @@ void testApp::update_bonuses() {
 }
 
 //--------------------------------------------------------------
-void testApp::check_bullet_collisions() {
+void ofApp::check_bullet_collisions() {
     for (int i = 0; i < bullets.size(); i++) {
         if (bullets[i].from_player) {
             for (int e = enemies.size()-1; e >= 0; e--) {
@@ -246,14 +246,14 @@ void testApp::check_bullet_collisions() {
     
 }
 //--------------------------------------------------------------
-void testApp::draw_lives() {
+void ofApp::draw_lives() {
     for (int i = 0; i < player_1.lives; i++) {
-        player_image.draw(ofGetWidth() - (i * player_image.width) - 100, 30);
+        player_image.draw(ofGetWidth() - (i * player_image.getWidth()) - 100, 30);
     }
     
 }
 //--------------------------------------------------------------
-void testApp::draw_score() {
+void ofApp::draw_score() {
     if (game_state == "game") {
         score_font.drawString(ofToString(score), 30, 72);
     } else if (game_state == "end") {
@@ -262,36 +262,36 @@ void testApp::draw_score() {
     }
 }
 //--------------------------------------------------------------
-void testApp::mouseMoved(int x, int y){
+void ofApp::mouseMoved(int x, int y){
     
 }
 
 //--------------------------------------------------------------
-void testApp::mouseDragged(int x, int y, int button){
+void ofApp::mouseDragged(int x, int y, int button){
     
 }
 
 //--------------------------------------------------------------
-void testApp::mousePressed(int x, int y, int button){
+void ofApp::mousePressed(int x, int y, int button){
     
 }
 
 //--------------------------------------------------------------
-void testApp::mouseReleased(int x, int y, int button){
+void ofApp::mouseReleased(int x, int y, int button){
     
 }
 
 //--------------------------------------------------------------
-void testApp::windowResized(int w, int h){
+void ofApp::windowResized(int w, int h){
     
 }
 
 //--------------------------------------------------------------
-void testApp::gotMessage(ofMessage msg){
+void ofApp::gotMessage(ofMessage msg){
     
 }
 
 //--------------------------------------------------------------
-void testApp::dragEvent(ofDragInfo dragInfo){
+void ofApp::dragEvent(ofDragInfo dragInfo){
     
 }
